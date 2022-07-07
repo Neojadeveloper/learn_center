@@ -31,4 +31,11 @@ public class LearnCenterApplication {
         rs.setUseCodeAsDefaultMessage(true);
         return rs;
     }
+
+    @Bean
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+        return builder
+                .setConnectTimeout(Duration.ofSeconds(60))
+                .setReadTimeout(Duration.ofSeconds(60))
+                .build();
 }
